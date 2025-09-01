@@ -6,11 +6,13 @@ import ModalDelete from "./components/ModalDelete";
 import ModalCreate from "./components/ModalCreate";
 import "./index.css";
 import { useSearchParams } from "react-router-dom";
+import ModalUpdate from "./components/ModalUpdate";
 
 function App() {
   const [count, setCount] = useState(0);
   const [isModalOpen, setIsDeleteModalOpen] = useState(false);
   const [openIsCreateModel, setIsCreateModalOpen] = useState(false);
+  const [openIsUpdateModal, setOpenIsUpdateModal] = useState(false);
   const [userData, setUserData] = useState(userTable);
   const [deletedUser, setDeletedUser] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,6 +28,13 @@ function App() {
     const updatedList = [...userData, user];
     setUserData(updatedList);
   };
+
+  const updateUser = (id) => {
+    const findUser = userData.find((user) => user.id === id);
+    setSearchParams({ id });
+    setOpenIsUpdateModal(true);
+    console.log(findUser);
+  }
   return (
     <section className="container">
       <ModalDelete
@@ -41,8 +50,14 @@ function App() {
         openIsCreateModel={openIsCreateModel}
         setIsCreateModalOpen={setIsCreateModalOpen}
       />
+      <ModalUpdate
+        openIsUpdateModal={openIsUpdateModal}
+        setOpenIsUpdateModal={setOpenIsUpdateModal}
+        userData={userData}
+        setUserData={setUserData}
+      />
       <Header setIsCreateModalOpen={setIsCreateModalOpen} />
-      <UserList deleteUser={deleteUser} userData={userData} />
+      <UserList deleteUser={deleteUser} userData={userData} updateUser={updateUser} />
     </section>
   );
 }

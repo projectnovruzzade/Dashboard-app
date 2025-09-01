@@ -1,14 +1,14 @@
 import React from "react";
 
-const User = ({ user,deleteUser }) => {
-  const handleEdit = (user) => {
-    console.log("Edit:", user);
-  };
+const User = ({ user,deleteUser,updateUser }) => {
 
   const handleDelete = (id) => {
     deleteUser(id);
   };
 
+  const handleUpdate = (id) => {
+    updateUser(id);
+  }
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -78,7 +78,7 @@ const User = ({ user,deleteUser }) => {
           style={{
             cursor: 'pointer'
           }}
-            onClick={() => handleEdit(user)}
+            onClick={() => handleUpdate(user.id)}
             className="text-green-600 hover:text-green-900"
             title="Edit"
           >

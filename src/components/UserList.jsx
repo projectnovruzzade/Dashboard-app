@@ -4,7 +4,7 @@ import "../index.css";
 import Thead from "./Thead";
 import User from "./User";
 
-const UserList = ({deleteUser,userData}) => {
+const UserList = ({deleteUser,userData,updateUser}) => {
 
   return (
     <main className="user-list">
@@ -16,7 +16,7 @@ const UserList = ({deleteUser,userData}) => {
                 <Thead />
                 <tbody className="bg-white divide-y divide-gray-200">
                   {userData.map((user) => (
-                   <User deleteUser={deleteUser} key={user.id} user={user}/>
+                   <User user={user} deleteUser={deleteUser} updateUser={updateUser} key={user.id} />
                   ))}
                 </tbody>
               </table>
