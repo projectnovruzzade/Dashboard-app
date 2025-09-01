@@ -46,7 +46,6 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Name</span>
             <Input
-              placeholder="Set Name"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
@@ -54,7 +53,6 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Role</span>
             <Input
-              placeholder="Set Role"
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
             />
@@ -62,7 +60,7 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Status</span>
             <Input
-              placeholder="Set Status"
+        
               value={userStatus}
               onChange={(e) => setUserStatus(e.target.value)}
             />
