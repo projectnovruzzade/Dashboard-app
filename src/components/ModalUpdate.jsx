@@ -28,10 +28,10 @@ const ModalUpdate = ({
 
   useEffect(() => {
     const findUser = userData.find((user) => user.id === parseInt(userId));
-    setUserName(findUser?.name || "");
-    setUserRole(findUser?.role || "");
-    setUserStatus(findUser?.status || "");
-  }, []);
+    setUserName(findUser?.name);
+    setUserRole(findUser?.role);
+    setUserStatus(findUser?.status);
+  }, [userId]);
 
   return (
     <>
@@ -46,6 +46,7 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Name</span>
             <Input
+              placeholder=""
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
@@ -53,6 +54,7 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Role</span>
             <Input
+              placeholder=""
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
             />
@@ -60,7 +62,7 @@ const ModalUpdate = ({
           <label htmlFor="" className="block mb-4">
             <span className="mb-1 block text-shadow-amber-300">Status</span>
             <Input
-        
+              placeholder=""
               value={userStatus}
               onChange={(e) => setUserStatus(e.target.value)}
             />
