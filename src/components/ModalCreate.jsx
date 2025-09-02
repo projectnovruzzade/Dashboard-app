@@ -18,6 +18,7 @@ const ModalCreate = ({
   const handleOk = () => {
     const newUser = {
       id: userData.length + 1,
+      uniqueId: Math.random().toString(36).substring(2, 10),
       name: userName,
       date: new Date().toISOString().split("T")[0],
       role: userRole.toLocaleLowerCase(),

@@ -18,7 +18,7 @@ function App() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const deleteUser = (id) => {
-    const deletedUser = userData.find((user) => user.id === id);
+    const deletedUser = userData.find((user) => user.uniqueId === id);
     setIsDeleteModalOpen(!isModalOpen);
     setDeletedUser(deletedUser);
     setSearchParams({ id });
@@ -30,7 +30,7 @@ function App() {
   };
 
   const updateUser = (id) => {
-    const findUser = userData.find((user) => user.id === id);
+    const findUser = userData.find((user) => user.uniqueId === id);
     setSearchParams({ id });
     setOpenIsUpdateModal(true);
     console.log(findUser);

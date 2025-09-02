@@ -78,7 +78,7 @@ const User = ({ user,deleteUser,updateUser }) => {
           style={{
             cursor: 'pointer'
           }}
-            onClick={() => handleUpdate(user.id)}
+            onClick={() => handleUpdate(user.uniqueId)}
             className="text-green-600 hover:text-green-900"
             title="Edit"
           >
@@ -100,7 +100,7 @@ const User = ({ user,deleteUser,updateUser }) => {
           style={{
             cursor: 'pointer'
           }}
-            onClick={() => handleDelete(user.id)}
+            onClick={() => handleDelete(user.uniqueId)}
             className="text-red-600 hover:text-red-900"
             title="Delete"
           >

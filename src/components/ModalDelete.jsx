@@ -16,8 +16,8 @@ const ModalAlert = ({
   };
 
   const handleOk = () => {
-    const id = searchParams.get("id");
-    const updatedList = userData.filter((user) => user.id != id);
+    const uniqueId = searchParams.get("id");
+    const updatedList = userData.filter((user) => user.uniqueId != uniqueId);
     setUserData(updatedList);
     setIsDeleteModalOpen(false);
     setSearchParams({});

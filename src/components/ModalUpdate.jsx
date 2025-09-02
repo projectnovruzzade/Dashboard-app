@@ -9,7 +9,7 @@ const ModalUpdate = ({
   setUserData,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const userId = searchParams.get("id");
+  const userUniqueId = searchParams.get("id");
   const [userName, setUserName] = useState("");
   const [userRole, setUserRole] = useState("");
   const [userStatus, setUserStatus] = useState("");
@@ -17,7 +17,7 @@ const ModalUpdate = ({
   const handleOk = () => {
     setOpenIsUpdateModal(false);
     setUserData((prevData) =>
-      prevData.map((user) => user.id === parseInt(userId) ? { ...user, name: userName, role: userRole, status: userStatus } : user)
+      prevData.map((user) => user.uniqueId === userUniqueId ? { ...user, name: userName, role: userRole, status: userStatus } : user)
     );
     setSearchParams({});
   };
@@ -27,11 +27,13 @@ const ModalUpdate = ({
 
 
   useEffect(() => {
-    const findUser = userData.find((user) => user.id === parseInt(userId));
+    const findUser = userData.find((user) => user.uniqueId === userUniqueId);
+    console.log(userData)
+    console.log("unique id", userUniqueId)
     setUserName(findUser?.name);
     setUserRole(findUser?.role);
     setUserStatus(findUser?.status);
-  }, [userId]);
+  }, [userUniqueId]);
 
   return (
     <>
